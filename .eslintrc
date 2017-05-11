@@ -1,0 +1,33 @@
+{
+  "extends": "eslint-config-prettier",
+  "parser": "babel-eslint",
+
+  "env": {
+    "jasmine": true
+  },
+
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "plugins": [
+    "import",
+    "jest"
+  ],
+  "rules": {
+    "capitalized-comments": ["off", "never", {
+      "line": {
+        "ignorePattern": ".*",
+        "ignoreInlineComments": true,
+        "ignoreConsecutiveComments": true
+      },
+      "block": {
+        "ignorePattern": ".*",
+        "ignoreInlineComments": true,
+        "ignoreConsecutiveComments": true
+      }
+    }]
+  }
+}

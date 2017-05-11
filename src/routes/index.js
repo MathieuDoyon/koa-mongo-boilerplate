@@ -1,0 +1,30 @@
+import Router from 'koa-router'
+import db from '../db'
+
+const router = new Router()
+const Demo = db.get('demo')
+
+router.get('/', async ctx => {
+  const data = await Demo.find({})
+
+  ctx.body = data
+})
+
+router.post('/', async ctx => {
+  const input = ctx.request.body
+
+  const inserted = await Demo.insert(input)
+
+  if (inserted === null) {
+    ctx.status = 405
+    throw new Error('Could not add demo object to database');
+  }
+
+  ctx.body = inserted
+})
+
+router.get('/health', async ctx => {
+  ctx.body = { timestamp: Date.now() }
+})
+
+export default router

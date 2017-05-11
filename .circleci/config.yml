@@ -1,0 +1,23 @@
+jobs:
+  build:
+    docker:
+     - image: circleci/node:7.9
+
+     - image: mongo:3.5.5
+       command: [mongod, --smallfiles]
+
+    working_directory: ~/code
+
+    steps:
+      # and can access mongo on localhost
+      - run: sleep 5 && nc -vz localhost 27017
+      - run: mkdir -p ~/code
+      - checkout
+      - run: npm install --depth=0
+      - run: npm test
+      # - store_artifacts:
+      #     path: ~/code/artifacts
+      # - add_ssh_keys
+      # - deploy:
+      #     command: |
+      #       echo 'TO BE IMPLEMENTED'
