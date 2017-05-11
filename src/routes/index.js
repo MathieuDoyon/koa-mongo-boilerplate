@@ -17,7 +17,7 @@ router.post('/', async ctx => {
 
   if (inserted === null) {
     ctx.status = 405
-    throw new Error('Could not add demo object to database');
+    throw new Error('Error while creating object')
   }
 
   ctx.body = inserted
