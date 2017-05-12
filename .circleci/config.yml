@@ -19,9 +19,8 @@ jobs:
       #     path: ~/code/artifacts
       - add_ssh_keys
       - deploy:
-          staging:
-            branch: master
-            commands:
-              # Test gcloud
-              - ./deploy.sh
-              - gcloud info
+          name: Maybe Deploy
+          command: |
+            # Test gcloud
+            ./deploy.sh
+            gcloud info
