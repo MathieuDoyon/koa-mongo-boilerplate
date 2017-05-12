@@ -23,4 +23,5 @@ jobs:
           command: |
             # Test gcloud
             # ./deploy.sh
-            gcloud info
+            # gcloud info
+            echo "Hello World"
