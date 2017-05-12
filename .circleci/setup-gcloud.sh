@@ -11,4 +11,4 @@ tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
 
 which gcloud
 
-sudo gcloud --quiet components update kubectl
+sudo ./google-cloud-sdk/bin/gcloud --quiet components update kubectl
