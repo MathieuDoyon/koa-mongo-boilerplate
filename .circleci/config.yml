@@ -18,6 +18,7 @@ jobs:
       # # - store_artifacts:
       # #     path: ~/code/artifacts
       - add_ssh_keys
+      - setup_remote_docker
       - run: bash .circleci/setup-gcloud.sh
       # - run: bash ./.circleci/setup-gcloud.sh
       # - run: ls ./.circleci

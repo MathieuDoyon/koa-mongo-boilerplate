@@ -36,4 +36,4 @@ gcloud --quiet components update kubectl
 
 kubectl help
 
-docker version
+# docker version
