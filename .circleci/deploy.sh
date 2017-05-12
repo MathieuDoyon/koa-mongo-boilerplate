@@ -5,7 +5,7 @@ export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 # kubectl help # kubectl: command not found
 kubectl help # kubectl: command not found
 
-# docker version
+docker version
 
 # Build and push docker image
 # docker build --build-arg NPM_TOKEN=${NPM_TOKEN} -t gcr.io/my-project/foo-service:$(git rev-parse --short HEAD) .
