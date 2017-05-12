@@ -17,7 +17,11 @@ jobs:
       - run: npm test
       # - store_artifacts:
       #     path: ~/code/artifacts
-      # - add_ssh_keys
-      # - deploy:
-      #     command: |
-      #       echo 'TO BE IMPLEMENTED'
+      - add_ssh_keys
+      - deploy:
+          staging:
+            branch: master
+            commands:
+              # Test gcloud
+              - ./deploy.sh
+              - gcloud info
