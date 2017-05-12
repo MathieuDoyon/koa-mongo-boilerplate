@@ -5,21 +5,13 @@
 
 apt-get install -y python2.7
 wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
-tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
+tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz -C /home/circleci/google-cloud-sdk
 ./google-cloud-sdk/install.sh --usage-reporting false --command-completion true --additional-components alpha beta --quiet
-# sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
 
 
-
-# sudo ./google-cloud-sdk/bin/gcloud --quiet components update kubectl
-
-# sudo ./google-cloud-sdk/bin/kubectl help
-
-export PATH=$PATH:/home/circleci/code/google-cloud-sdk/bin
+export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 
 # echo $PATH
-
-# ls /home/circleci/code/google-cloud-sdk/bin
 
 gcloud --quiet components update kubectl
 
