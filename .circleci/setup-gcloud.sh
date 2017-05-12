@@ -11,6 +11,10 @@ tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
 
 export PATH=$PATH:/home/circleci/code/google-cloud-sdk/bin/
 
-sudo gcloud --quiet components update kubectl
+echo $PATH
 
-sudo kubectl help
+ls /home/circleci/code/google-cloud-sdk
+
+sudo ./google-cloud-sdk/bin/gcloud --quiet components update kubectl
+
+sudo ./google-cloud-sdk/bin/kubectl help
