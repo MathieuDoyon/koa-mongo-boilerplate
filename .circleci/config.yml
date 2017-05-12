@@ -21,8 +21,8 @@ jobs:
       - run: bash .circleci/setup-gcloud.sh
       # - run: bash ./.circleci/setup-gcloud.sh
       # - run: ls ./.circleci
-      - run: echo $(pwd)
-      - run: ls -la
+      # - run: echo $(pwd)
+      # - run: ls -la
       - deploy:
           name: Maybe Deploy
           command: |

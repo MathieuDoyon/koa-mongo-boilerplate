@@ -18,6 +18,18 @@ export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 
 # echo $PATH
 
-gcloud --quiet components update kubectl
+# gcloud --quiet components update kubectl
 
-kubectl help
+# kubectl help
+
+# gcloud container clusters get-credentials <your-cluster>
+
+# Auth gcloud
+# echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
+# gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
+
+# Init kubectl, sudo is required :/
+gcloud --quiet components update kubectl
+# gcloud config set compute/zone europe-west1-c
+# gcloud config set project my-project
+# gcloud container clusters get-credentials trace
