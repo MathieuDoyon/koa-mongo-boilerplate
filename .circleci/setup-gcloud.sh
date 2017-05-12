@@ -9,13 +9,15 @@ wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk
 
 tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz -C /home/circleci/google-cloud-sdk
 
-/home/circleci/google-cloud-sdk/install.sh --usage-reporting false --command-completion true --additional-components alpha beta --quiet
+ls /home/circleci/google-cloud-sdk/ -la
+
+# /home/circleci/google-cloud-sdk/install.sh --usage-reporting false --command-completion true --additional-components alpha beta --quiet
 
 
-export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
+# export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 
-# echo $PATH
+# # echo $PATH
 
-gcloud --quiet components update kubectl
+# gcloud --quiet components update kubectl
 
-kubectl help
+# kubectl help
