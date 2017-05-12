@@ -8,7 +8,7 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 RUN mkdir /code
 COPY package.json /code/
 WORKDIR /code
-RUN npm install --depth=0
+RUN npm install --depth=0 --production
 # RUN yarn install
 COPY . /code
 
