@@ -1,5 +1,10 @@
 jobs:
   build:
+    environment:
+      GCLOUD_PROJECT_NAME: garage-gigs
+      GCLOUD_CLUSTER_NAME: cluster-1
+      GCLOUD_COMPUTE_ZONE: us-east1-d
+      DOCKER_IMAGE_NAME: gcr.io/garage-gigs/circleci-node-mongo
     docker:
      - image: circleci/node:7.9
 
@@ -19,23 +24,12 @@ jobs:
       # #     path: ~/code/artifacts
       - add_ssh_keys
       - setup_remote_docker
-      # - run: bash .circleci/setup-gcloud.sh
-      # - run: bash ./.circleci/setup-gcloud.sh
-      # - run: ls ./.circleci
-      # - run: echo $(pwd)
-      # - run: ls -la
       - deploy:
           name: Maybe Deploy
           command: |
             bash .circleci/setup-gcloud.sh
-            # bash .circleci/deploy.sh
-            docker build --build-arg NPM_TOKEN=${NPM_TOKEN} -t gcr.io/my-project/foo-service:$(git rev-parse --short HEAD) .
-            docker images
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              echo "Current Branch is Develop"
+            bash .circleci/gcr-upload.sh
+            # docker images
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo "Current Branch is MASTER"
             fi
-          # command: |
-          #   # Test gcloud
-          #   bash .circleci/deploy.sh
-          #   # gcloud info
-          #   # echo "Hello World"
