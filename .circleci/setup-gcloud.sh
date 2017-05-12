@@ -9,8 +9,8 @@ tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
 ./google-cloud-sdk/install.sh --usage-reporting false --command-completion true --additional-components alpha beta --quiet
 # sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
 
-which gcloud
+PATH=$PATH:/home/circleci/code/google-cloud-sdk/bin/
 
-sudo ./google-cloud-sdk/bin/gcloud --quiet components update kubectl
+sudo gcloud --quiet components update kubectl
 
-ls ./google-cloud-sdk/bin/
+sudo kubectl help
