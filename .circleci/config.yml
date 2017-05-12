@@ -18,6 +18,7 @@ jobs:
       # - store_artifacts:
       #     path: ~/code/artifacts
       - add_ssh_keys
+      - run: bash .circleci/setup-gcloud.sh
       - deploy:
           name: Maybe Deploy
           command: |
