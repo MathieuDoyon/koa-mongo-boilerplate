@@ -33,3 +33,7 @@ gcloud --quiet components update kubectl
 # gcloud config set compute/zone europe-west1-c
 # gcloud config set project my-project
 # gcloud container clusters get-credentials trace
+
+kubectl help
+
+docker version
