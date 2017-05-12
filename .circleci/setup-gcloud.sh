@@ -7,7 +7,7 @@ apt-get install -y python2.7
 
 wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-153.0.0-linux-x86_64.tar.gz
 
-tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz -C /home/circleci/google-cloud-sdk
+tar -xzf google-cloud-sdk-153.0.0-linux-x86_64.tar.gz -C /home/circleci
 
 ls /home/circleci/google-cloud-sdk/ -la
 
