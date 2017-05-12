@@ -12,11 +12,11 @@ export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 
 echo "Setting up google cloud sdk..."
 echo ${GCLOUD_SERVICE_KEY} | base64 --decode -i > ${HOME}/account-auth.json
-sudo gcloud --quiet components update
-sudo gcloud --quiet components update kubectl
-sudo gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
-sudo gcloud config set project ${GCLOUD_PROJECT_NAME}
-# sudo gcloud --quiet config set container/cluster ${GCLOUD_CLUSTER_NAME}
-# sudo gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
-# sudo gcloud config set container/use_client_certificate True
-# sudo gcloud --quiet container clusters get-credentials ${GCLOUD_CLUSTER_NAME}
+gcloud --quiet components update
+gcloud --quiet components update kubectl
+gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
+gcloud config set project ${GCLOUD_PROJECT_NAME}
+# gcloud --quiet config set container/cluster ${GCLOUD_CLUSTER_NAME}
+# gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
+# gcloud config set container/use_client_certificate True
+# gcloud --quiet container clusters get-credentials ${GCLOUD_CLUSTER_NAME}
