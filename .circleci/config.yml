@@ -31,6 +31,9 @@ jobs:
             # bash .circleci/deploy.sh
             docker build --build-arg NPM_TOKEN=${NPM_TOKEN} -t gcr.io/my-project/foo-service:$(git rev-parse --short HEAD) .
             docker images
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              echo "Current Branch is Develop"
+            fi
           # command: |
           #   # Test gcloud
           #   bash .circleci/deploy.sh
