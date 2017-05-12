@@ -25,8 +25,9 @@ jobs:
       # - run: ls -la
       - deploy:
           name: Maybe Deploy
-          command: |
-            # Test gcloud
-            # ./deploy.sh
-            # gcloud info
-            echo "Hello World"
+          command: bash .circleci/deploy.sh
+          # command: |
+          #   # Test gcloud
+          #   bash .circleci//deploy.sh
+          #   # gcloud info
+          #   # echo "Hello World"
