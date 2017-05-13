@@ -1,6 +1,6 @@
 import supertest from 'supertest'
 import app from '../src/app'
-import db from '../src/db'
+// import db from '../src/db'
 
 const server = app.listen()
 const request = supertest.agent(server)
@@ -8,7 +8,7 @@ const request = supertest.agent(server)
 describe('Index routes', () => {
   afterAll(() => {
     server.close()
-    db.close()
+    // db.close()
   })
 
   it('Homepage', async () => {
