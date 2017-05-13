@@ -1,6 +1,6 @@
 {
   "name": "circlci-node-mongo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "scripts": {
     "dev": "DEBUG=srv* NODE_ENV=development node ./bin/server.js | pino",
