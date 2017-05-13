@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function bump {
+	output=$(npm version ${release} --no-git-tag-version)
+	version=${output:1}
+}
+
+function help {
+	echo "Usage: [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease]"
+}
+
+if [ -z "$1" ] || [ "$1" = "help" ]; then
+	help
+	exit
+fi
+
+release=$1
+
+changes=$(git status --porcelain)
+
+if [ -z "${changes}" ]; then
+    bump
+    git add .
+    git commit -nm "Bump to ${version}"
+    git tag -a "${version}" -m "${version}"
+    git push origin --tags
+else
+    echo "Please commit staged files prior to bumping"
+fi
