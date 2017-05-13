@@ -9,18 +9,18 @@ jobs:
     docker:
      - image: circleci/node:7.9
 
-    #  - image: mongo:3.5.5
-    #    command: [mongod, --smallfiles]
+     - image: mongo:3.5.5
+       command: [mongod, --smallfiles]
 
     working_directory: ~/code
 
     steps:
       # and can access mongo on localhost
-      # - run: sleep 5 && nc -vz localhost 27017
+      - run: sleep 5 && nc -vz localhost 27017
       - run: mkdir -p ~/code
       - checkout
-      # - run: npm install --depth=0
-      # - run: npm test
+      - run: npm install --depth=0
+      - run: npm test
       # # - store_artifacts:
       # #     path: ~/code/artifacts
       - add_ssh_keys
@@ -28,9 +28,8 @@ jobs:
       - deploy:
           name: Maybe Deploy
           command: |
-            bash .circleci/setup-gcloud.sh
-            bash .circleci/gcr-upload.sh
-            # docker images
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "Current Branch is MASTER"
+            if [ ! -z "$CIRCLE_TAG" ]; then
+              bash .circleci/setup-gcloud.sh
+              bash .circleci/gcr-upload.sh
+              echo "Deploy current tag $CIRCLE_TAG to staging K8S"
             fi
