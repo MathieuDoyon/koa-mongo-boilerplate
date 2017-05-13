@@ -28,8 +28,9 @@ jobs:
       - deploy:
           name: Maybe Deploy
           command: |
-            if [ ! -z "$CIRCLE_TAG" ]; then
+            echo "Test tag ${CIRCLE_TAG} Branch ${CIRCLE_BRANCH}"
+            if [ ! -z "${CIRCLE_TAG}" ]; then
               bash .circleci/setup-gcloud.sh
               bash .circleci/gcr-upload.sh
-              echo "Deploy current tag $CIRCLE_TAG to staging K8S"
+              echo "Deploy current tag ${CIRCLE_TAG} to staging K8S"
             fi
