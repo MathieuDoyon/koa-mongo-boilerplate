@@ -8,7 +8,8 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 
 RUN mkdir /code
 
-COPY package.json .npmrc /code/
+# COPY package.json .npmrc /code/
+COPY package.json /code/
 
 WORKDIR /code
 
