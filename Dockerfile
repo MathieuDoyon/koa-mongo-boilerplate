@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:7.8
 
-ARG NPM_TOKEN
+ARG NPM_TOKEN=to-be-implemented
 
 EXPOSE 80
 
