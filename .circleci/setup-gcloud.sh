@@ -16,7 +16,7 @@ gcloud --quiet components update
 gcloud --quiet components update kubectl
 gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
 gcloud config set project ${GCLOUD_PROJECT_NAME}
-# gcloud --quiet config set container/cluster ${GCLOUD_CLUSTER_NAME}
-# gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
-# gcloud config set container/use_client_certificate True
-# gcloud --quiet container clusters get-credentials ${GCLOUD_CLUSTER_NAME}
+gcloud --quiet config set container/cluster ${GCLOUD_CLUSTER_NAME}
+gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
+gcloud config set container/use_client_certificate True
+gcloud --quiet container clusters get-credentials ${GCLOUD_CLUSTER_NAME}

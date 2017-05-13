@@ -2,7 +2,7 @@ jobs:
   build:
     environment:
       GCLOUD_PROJECT_NAME: garage-gigs
-      GCLOUD_CLUSTER_NAME: cluster-1
+      GCLOUD_CLUSTER_NAME: gigs-1
       GCLOUD_COMPUTE_ZONE: us-east1-d
       K8S_CONTAINER: circleci-node-mongo
       K8S_NAMESPACE: staging
