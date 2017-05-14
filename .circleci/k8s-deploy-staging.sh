@@ -2,6 +2,7 @@
 #   (kubectl rollout status deployment/${deployment} --namespace ${K8S_NAMESPACE} && \
 #     kubectl set image deployment/${deployment} --namespace ${K8S_NAMESPACE} ${container}=${DOCKER_IMAGE_NAME}) || \
 #     echo "Warning: Ignoring rolling update"
+export PATH=$PATH:/home/circleci/google-cloud-sdk/bin
 
 K8S_TAG=$(git rev-parse --short HEAD)
 
