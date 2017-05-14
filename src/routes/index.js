@@ -1,5 +1,6 @@
 import Router from 'koa-router'
 import db from '../db'
+import { version } from '../../package.json'
 
 const router = new Router()
 const Demo = db.get('demo')
@@ -24,7 +25,10 @@ router.post('/', async ctx => {
 })
 
 router.get('/health', async ctx => {
-  ctx.body = { timestamp: Date.now() }
+  ctx.body = {
+    timestamp: Date.now(),
+    version
+  }
 })
 
 export default router

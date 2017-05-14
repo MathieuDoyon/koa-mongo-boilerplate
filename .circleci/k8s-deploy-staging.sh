@@ -8,3 +8,4 @@ K8S_TAG=$(git rev-parse --short HEAD)
 echo "K8S_TAG ${K8S_TAG}"
 
 # kubectl patch deployment $K8S_CONTAINER -p '{"spec":{"template":{"spec":{"containers":[{"name":"$K8S_CONTAINER","image":"$DOCKER_IMAGE_NAME:'"$K8S_TAG"'"}]}}}}'
+kubectl patch rc $K8S_CONTAINER -n staging -p '{"spec":{"template":{"spec":{"containers":[{"name":"$K8S_CONTAINER","image":"$DOCKER_IMAGE_NAME:'"$K8S_TAG"'"}]}}}}'
