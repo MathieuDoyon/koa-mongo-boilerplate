@@ -18,4 +18,6 @@ K8S_TAG=$(git rev-parse --short HEAD)
 # echo '{"spec":{"template":{"spec":{"containers":[{"name":"'"$K8S_CONTAINER"'","image":"'"$DOCKER_IMAGE_NAME"':'"$K8S_TAG"'"}]}}}}'
 # kubectl patch rc $K8S_CONTAINER -n staging -p '{"spec":{"template":{"spec":{"containers":[{"name":"'"$K8S_CONTAINER"'","image":"'"$DOCKER_IMAGE_NAME"':'"$K8S_TAG"'"}]}}}}'
 
-kubectl set image deployment/$K8S_CONTAINER $DOCKER_IMAGE_NAME=$DOCKER_IMAGE_NAME:K8S_TAG
+kubectl -n $K8S_NAMESPACE set image deployment/$K8S_CONTAINER $K8S_CONTAINER=$DOCKER_IMAGE_NAME:$K8S_TAG
+
+# kubectl -n staging set image deployment/circleci-node-mongo circleci-node-mongo=gcr.io/garage-gigs/circleci-node-mongo:de35f14
