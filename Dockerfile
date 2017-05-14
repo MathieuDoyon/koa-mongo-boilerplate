@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:7.8
+FROM mhart/alpine-node:7.10
 
 # ARG NPM_TOKEN=to-be-implemented
 
